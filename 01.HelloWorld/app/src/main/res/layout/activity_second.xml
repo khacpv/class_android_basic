@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oic.app.helloworld.SecondActivity"
+    >
+  <TextView
+      android:id="@+id/tv_message"
+      android:layout_width="wrap_content"
+      android:textColor="#FFFF00"
+      android:text="Message here"
+      android:textSize="50sp"
+      android:layout_height="wrap_content"
+      />
+
+  <Button
+      android:id="@+id/btn_Ok"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:onClick="onBtnOkClick"
+      android:text="OK"/>
+
+  <include
+    layout="@layout/my_layout"/>
+</android.support.constraint.ConstraintLayout>
