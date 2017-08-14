@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <LinearLayout
+      android:id="@+id/frags"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      >
+    <!-- layout-large is for only < android 3.2 -->
+
+    <!-- "Fragment A" -->
+    <fragment
+        class="com.oic.app.masterdetailfragment.TitlesFragment"
+        android:id="@+id/list_frag"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        />
+    <!-- "Fragment B" -->
+    <fragment
+        class="com.oic.app.masterdetailfragment.DetailFragment"
+        android:id="@+id/details_frag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+  </LinearLayout>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="8dp"
+      android:text="layout_large"
+      android:textColor="#F00"
+      android:textSize="18sp"
+      />
+</FrameLayout>
