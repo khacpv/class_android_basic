@@ -2,15 +2,18 @@ package com.oic.app.masterdetailfragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.plus.PlusOneButton;
+import android.widget.TextView;
 
 /**
  * A fragment with a Google +1 button.
  */
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment implements UpdateCountListener {
+
+    TextView tvCount;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -25,7 +28,18 @@ public class DetailFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tvCount = (TextView) view.findViewById(R.id.tv_count);
+    }
+
     public void updateContent(int position) {
 
+    }
+
+    @Override
+    public void updateCount(int count) {
+        tvCount.setText("Count: " + count);
     }
 }

@@ -1,38 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/my_drawer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-  <LinearLayout
-      android:id="@+id/frags"
+  <FrameLayout
+      android:id="@+id/content_frame"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="horizontal"
       >
-    <!-- layout-large is for only < android 3.2 -->
-
-    <!-- "Fragment A" -->
-    <fragment
-        class="com.oic.app.masterdetailfragment.TitlesFragment"
-        android:id="@+id/list_frag"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        />
-    <!-- "Fragment B" -->
-    <fragment
-        class="com.oic.app.masterdetailfragment.DetailFragment"
-        android:id="@+id/details_frag"
+    <LinearLayout
+        android:id="@+id/frags"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+      <!-- layout-large is for only < android 3.2 -->
+
+      <!-- "Fragment A" -->
+      <fragment
+          class="com.oic.app.masterdetailfragment.TitlesFragment"
+          android:id="@+id/list_frag"
+          android:layout_width="200dp"
+          android:layout_height="match_parent"
+          />
+      <!-- "Fragment B" -->
+      <fragment
+          class="com.oic.app.masterdetailfragment.DetailFragment"
+          android:id="@+id/details_frag"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="layout_sw600dp"
+        android:textColor="#F00"
+        android:textSize="18sp"
+        />
+  </FrameLayout>
+  <LinearLayout
+      android:id="@+id/drawer"
+      android:layout_width="350dp"
+      android:layout_height="match_parent"
+      android:gravity="start"
+      android:background="#F0F"
+      android:layout_gravity="start"
+      >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="#F00"
+        android:text="Drawer Layout"
+        android:textColor="#FFF"
+        android:textSize="40sp"
         />
   </LinearLayout>
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="8dp"
-      android:text="layout_sw600dp"
-      android:textColor="#F00"
-      android:textSize="18sp"
-      />
-</FrameLayout>
+</android.support.v4.widget.DrawerLayout>
+
+
+
+
+
+
+
