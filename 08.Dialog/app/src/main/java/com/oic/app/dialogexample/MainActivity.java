@@ -1,20 +1,28 @@
 package com.oic.app.dialogexample;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showToast(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        view.startAnimation(fadeIn);
+
         Toast.makeText(this, "Hello, I'm a Toast", Toast.LENGTH_LONG).show();
     }
 
@@ -33,14 +44,59 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Alert Dialog");
         builder.setMessage("Hello, Nice to meet you");
-        builder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+        //builder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+        //    @Override
+        //    public void onClick(DialogInterface dialog, int which) {
+        //        dialog.dismiss();
+        //    }
+        //});
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
             }
         });
 
         AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void showDatePickerDialog(View view) {
+        final Date date= new Date();
+        int year = date.getYear();
+        int month = date.getMonth();
+        int day = date.getDay();
+
+        DatePickerDialog dialog =
+            new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    Toast.makeText(MainActivity.this, ""+year+"-"+month+"-"+dayOfMonth,Toast.LENGTH_SHORT).show();
+                    showTimePickerDialog();
+                }
+            }, 2017, 8, 16);
+        dialog.show();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    public void showTimePickerDialog(){
+        TimePickerDialog dialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                Toast.makeText(MainActivity.this, ""+hourOfDay+":"+minute,Toast.LENGTH_SHORT).show();
+            }
+        },20, 5, true);
         dialog.show();
     }
 
@@ -87,7 +143,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDialogCustom(View view) {
-        DialogFragment dialogFragment = new CustomDialog();
+        CustomDialog dialogFragment = new CustomDialog();
+        dialogFragment.setCustomDialogListener(new CustomDialog.CustomDialogListener() {
+            @Override
+            public void onBtnOkClick() {
+
+            }
+        });
         dialogFragment.show(getFragmentManager(), "login form");
     }
 
@@ -121,7 +183,9 @@ public class MainActivity extends AppCompatActivity {
         // mNotificationId is a unique integer your app uses to identify the
         // notification. For example, to cancel the notification, you can pass its ID
         // number to NotificationManager.cancel().
-        mNotificationManager.notify(999, mBuilder.build());
-
+        i ++;
+        mNotificationManager.notify(i, mBuilder.build());
     }
+
+    int i = 0;
 }

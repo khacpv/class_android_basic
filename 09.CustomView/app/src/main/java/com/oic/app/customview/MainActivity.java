@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v4.view.LayoutInflaterFactory;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         TimeView timeView = (TimeView) findViewById(R.id.timeView);
         String content = timeView.getText().toString();
+
     }
 
     public static boolean isIntentAvailable(Context ctx, Intent intent) {
@@ -86,21 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
             Intent stopIntent = new Intent(this, MyStartService.class);
             stopService(stopIntent);
-        }
-
-        public class CustomAdapter extends ArrayAdapter<String> {
-            public CustomAdapter(Context context, int resource, List<> data){
-                super(context, resource, data);
-            }
-
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView,
-                @NonNull ViewGroup parent) {
-                LayoutInflater inflater = LayoutInflater.from(context).inflate(this.resource, null);
-                View itemView = inflater.inflate(this.resource, null, false);
-                return itemView;
-            }
         }
     }
 }

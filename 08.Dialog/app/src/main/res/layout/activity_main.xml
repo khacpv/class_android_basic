@@ -30,6 +30,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="showDatePickerDialog"
+        android:text="Show DatePicker dialog"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="showDialogAlertList"
         android:text="Show Alert-List dialog"
         />

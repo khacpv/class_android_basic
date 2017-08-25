@@ -1,37 +1,84 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#222"
     android:orientation="vertical"
     >
   <ImageView
-      android:layout_width="match_parent"
+      android:layout_width="64dp"
       android:layout_height="64dp"
-      android:background="#FFFFBB33"
+      android:layout_gravity="end"
       android:contentDescription="@string/app_name"
       android:scaleType="fitCenter"
-      android:src="@drawable/dialog"
+      android:src="@drawable/close"
       />
-  <EditText
-      android:id="@+id/username"
+  <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginBottom="4dp"
       android:layout_marginLeft="4dp"
       android:layout_marginRight="4dp"
       android:layout_marginTop="16dp"
-      android:hint="username"
-      android:inputType="textEmailAddress"
+      android:text="Change Theme"
+      android:textAlignment="center"
+      android:textColor="#FFF"
+      android:textSize="24sp"
       />
-  <EditText
-      android:id="@+id/password"
+  <GridLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:columnCount="3"
+      android:foregroundGravity="center"
+      android:rowCount="2"
+      >
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:src="#0F0"
+        />
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:src="#F00"
+        />
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:src="#00F"
+        />
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:src="#FF0"
+        />
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:src="#F0F"
+        />
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:src="#0FF"
+        />
+  </GridLayout>
+  <Button
+      android:id="@+id/btn_ok"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginLeft="4dp"
-      android:layout_marginRight="4dp"
-      android:layout_marginTop="4dp"
-      android:fontFamily="sans-serif"
-      android:hint="password"
-      android:inputType="textPassword"
+      android:text="OK"
       />
 </LinearLayout>

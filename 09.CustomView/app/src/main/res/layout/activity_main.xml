@@ -2,7 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    >
 
   <com.oic.app.customview.TimeView
       xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,6 +17,16 @@
       android:textSize="18sp"
       app:setColor="true"
       app:title="Current Time"
+      />
+
+  <me.relex.circleindicator.CircleIndicator
+      android:id="@+id/indicator"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"/>
+  <com.oic.app.customview.TimeView2
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:lineColor="#000"
       />
 
 </LinearLayout>
